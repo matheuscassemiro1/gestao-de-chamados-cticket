@@ -1,0 +1,23 @@
+{
+  "name": "c-ticket",
+  "version": "1.0.0",
+  "description": "Gerenciador de chamados de suporte",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Matheus Cassemiro",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "exceljs": "^4.3.0",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "formidable": "^3.5.0",
+    "moment": "^2.29.4",
+    "mysql2": "^3.6.0",
+    "package-lock.json": "^1.0.0",
+    "sequelize": "^6.32.1"
+  }
+}
