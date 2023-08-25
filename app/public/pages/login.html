@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C TICKET | LOGIN</title>
+    <link rel="icon" type="image/x-icon" src="http://localhost:80/imagens/favicon" href="http://localhost:80/imagens/favicon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <div id="header" style="display: inline-block; margin-left: 1rem;">
+
+    </div>
+
+</head>
+
+
+<style>
+    .unselectable {
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: #cc0000;
+    }
+
+    body {
+        background-image: url('./../img/logotipo.png');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        backdrop-filter: blur(8px);
+        height: 100vh;
+        width: 100%;
+
+
+    }
+
+    #content {
+        position: absolute;
+    }
+</style>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <div id="content" class="container text-center" style="margin-top: 2rem;">
+    </div>
+    <div class="modal position-absolute d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img class="mb-0" src="http://localhost:80/imagens/logotipo" alt="" width="250" height="100">
+                    <p
+                        style="margin-right: 4rem; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                       C TICKET</p>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <h1 class="h3 mb-3 fw-normal">Bem vindo(a)!</h1>
+                        <div class="form-floating">
+                            <input type="text" class="form-control mb-1" id="login" placeholder="usuario facmenu">
+                            <label for="login">Login</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="senha" placeholder="senha">
+                            <label for="senha">Senha</label>
+                        </div>
+                        <button id="enviar" class="btn btn-primary w-100 py-2 mt-2" type="submit">Entrar</button>
+                        <p class="mt-5 mb-3 text-body-secondary" >© Desenvolvido por <a href="https://github.com/matheuscassemiro1">Matheus Cassemiro</a></p>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="./../functions/login.js"></script>
+</body>
+
+</html>

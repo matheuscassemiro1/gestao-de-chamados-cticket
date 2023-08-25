@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C TICKET | USUÁRIOS</title>
+
+    <link rel="icon" type="image/x-icon" src="http://localhost:80/imagens/favicon" href="http://localhost:80/imagens/favicon">
+    <script src="./../functions/reflocais.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <div id="header" style="display: inline-block; margin-left: 1rem;">
+        <img src="http://localhost:80/imagens/logotipo" width="200px">
+        <H2 class="unselectable"
+            style="display: inline-block; position: absolute; margin-left: 16rem; margin-top: 3rem; font-family: sans-serif; color: rgba(24, 24, 24, 0.671);">
+            USUÁRIOS</H2>
+    </div>
+    <nav class="navbar bg-success" data-bs-theme="dark">
+        <div id="buttons" style="display: inline; position: relative; margin: 0 auto;">
+            <button class="btn btn-success" onclick="paginaDashboard()">Dashboard</button>
+            <button class="btn btn-success" onclick="paginaAbrirChamadoAdmin()">Novo Chamado</button>
+            <button class="btn btn-success" onclick="paginaListarChamadosAberto()">Chamados</button>
+            <button class="btn btn-success" onclick="paginaFiltroChamados()">Relatórios</button>
+            <button class="btn btn-success" onclick="paginaUsuarios()">Usuários</button>
+            <button class="btn btn-dark" onclick="sair()">Sair</button>
+        </div>
+    </nav>
+</head>
+
+<style>
+    .unselectable {
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: #cc0000;
+    }
+</style>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <div id="content" class="container text-center" style="margin-top: 1rem;">
+        <div class="bd-example">
+            <button class="btn btn-success" style="margin-top: -1rem;" data-bs-target="#modalNovoUsuario"
+                data-bs-toggle="modal">Criar novo usuário</button>
+            <!-- Button trigger modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalNovoUsuario" tabindex="-1" aria-labelledby="modalNovoUsuario"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Dados do novo usuário</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formCriacaoUsuario" class="form-control">
+                                <input class="form-control mb-1" style="text-align: center;" type="text" name="nome"
+                                    id="nome" placeholder="NOME">
+                                <input class="form-control mb-1" style="text-align: center;" type="text" name="login"
+                                    id="login" placeholder="LOGIN">
+                                <input class="form-control mb-1" style="text-align: center;" type="password"
+                                    name="senha" id="senha" placeholder="*******">
+                                <select style="text-align: center;" id="permissao" class="form-select">
+                                    <option selected value="n/a">**defina o nível do usuário**</option>
+                                    <option value="false">USUÁRIO</option>
+                                    <option value="true">ADMIN</option>
+                                </select>
+                                <select style="text-align: center;" id="setor" class="form-select">
+                                    <option selected value="n/a">setor</option>
+                                    <option value="cadastro">Cadastro</option>
+                                    <option value="comercial">Comercial</option>
+                                    <option value="contabilidade">Contabilidade</option>
+                                    <option value="coordenacao">Coordenação</option>
+                                    <option value="diretoria">Diretoria</option>
+                                    <option value="financeiro">Financeiro</option>
+                                    <option value="ged">Ged</option>
+                                    <option value="rh">RH</option>
+                                    <option value="ti">TI</option>
+                                </select>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger"
+                                        data-bs-dismiss="modal">Cancelar</button>
+                                    <button id="criarNovoUsuario" type="submit" class="btn btn-success">Criar o novo
+                                        usuário</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">NOME</th>
+                        <th scope="col">LOGIN</th>
+                        <th scope="col">ADMIN</th>
+                        <th scope="col">SETOR</th>
+                        <th scope="col">AÇÕES</th>
+                    </tr>
+                </thead>
+                <tbody id="usuarios">
+
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+    </div>
+    <script src="./../functions/usuarios.js"></script>
+    <script>
+        carregarUsuarios()
+    </script>
+</body>
+
+</html>
